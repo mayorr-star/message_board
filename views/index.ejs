@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <title>Message App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <header>
+      <h1><%= title %></h1>
+    </header>
+    <main>
+        <section class="messages">
+            <ul>
+                <% messages.forEach((message) => { %>
+                    <li>
+                        <p><%= message.user %></p>
+                        <p><%= message.text %></p>
+                        <p><%= message.added %></p>
+                    </li>
+                <% }) %>
+            </ul>
+        </div>
+    </main>
+  </body>
+</html>
