@@ -14,4 +14,14 @@ const messages = [
 const getMessages = (req, res) => {
   res.render("index", {title: 'Mini Messageboard', messages: messages });
 };
-module.exports = getMessages;
+
+const postMessage = (req, res) => {
+  const {name, message} = req.body;
+  messages.push({text: message, user: name, added: new Date()});
+  res.redirect('/');
+}
+
+module.exports = {
+  getMessages, postMessage
+};
+
