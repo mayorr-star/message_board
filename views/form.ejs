@@ -1,15 +1,33 @@
-<form action="/new" method="post">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    <%- include('navbar') %>
     <header>
-        <h2><%= header %></h2>
+      <h1><%= header %></h1>
     </header>
-    <div class="controls">
-        <label for="name">Enter your name</label>
-        <input type="text" name="name" id="name" placeholder="John Doe"/>
-        <small class="error"></small>
-    </div>
-    <div class="controls">
-        <textarea name="message" id="message" placeholder="type message here...."></textarea>
-        <small class="error"></small>
-    </div>
-    <button type="submit">Submit</button>
-</form>
+    <main>
+      <form action="/new" method="post">
+        <div class="controls">
+          <label for="name">Enter your name</label>
+          <input type="text" name="name" id="name" placeholder="John Doe" />
+          <small class="error"></small>
+        </div>
+        <div class="controls">
+          <textarea
+            name="message"
+            id="message"
+            placeholder="type message here...."
+          ></textarea>
+          <small class="error"></small>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+    <%- include('footer', {year: year}) %>
+  </body>
+</html>
