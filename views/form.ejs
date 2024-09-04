@@ -1,0 +1,15 @@
+<form action="/new" method="post">
+    <header>
+        <h2><%= header %></h2>
+    </header>
+    <div class="controls">
+        <label for="name">Enter your name</label>
+        <input type="text" name="name" id="name" placeholder="John Doe"/>
+        <small class="error"></small>
+    </div>
+    <div class="controls">
+        <textarea name="message" id="message" placeholder="type message here...."></textarea>
+        <small class="error"></small>
+    </div>
+    <button type="submit">Submit</button>
+</form>
