@@ -1,3 +1,5 @@
+const asyncHandler = require("express-async-handler");
+const NotFoundError = require('../utilis/error_handling/errors/NotFoundError');
 const messages = [
   {
     text: "Hi there!",
@@ -11,19 +13,31 @@ const messages = [
   },
 ];
 
-const currentYear = require('../date');
+const currentYear = require("../utilis/date");
 
-const getMessages = (req, res) => {
-  res.render("index", {title: 'Mini Messageboard', messages: messages, year: currentYear });
-};
+const getMessages = asyncHandler(async (req, res) => {
+  if (!messages) {
+    throw new NotFoundError('Messages not found');
+  }
+  res.render("index", {
+    title: "Mini Messageboard",
+    messages: messages,
+    year: currentYear,
+  });
+});
 
-const postMessage = (req, res) => {
-  const {name, message} = req.body;
-  messages.push({text: message, user: name, added: new Date()});
-  res.redirect('/');
-}
+const postMessage = asyncHandler(async (req, res) => {
+  const { name, message } = req.body;
+  messages.push({ text: message, user: name, added: new Date() });
+  res.redirect("/");
+});
+
+const getMessageById = asyncHandler(async (req, res) => {
+
+});
 
 module.exports = {
-  getMessages, postMessage
+  getMessages,
+  postMessage,
+  getMessageById
 };
-
