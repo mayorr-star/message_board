@@ -11,8 +11,10 @@ const messages = [
   },
 ];
 
+const currentYear = require('../date');
+
 const getMessages = (req, res) => {
-  res.render("index", {title: 'Mini Messageboard', messages: messages });
+  res.render("index", {title: 'Mini Messageboard', messages: messages, year: currentYear });
 };
 
 const postMessage = (req, res) => {
