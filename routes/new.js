@@ -1,9 +1,7 @@
-const { Router } = require('express');
+const { Router } = require("express");
 const router = Router();
-const getForm = require('../controllers/formController');
-const messageController = require('../controllers/messageController');
+const getForm = require("../controllers/formController");
 
-router.get('/', getForm);
-router.get('/:messageId', messageController.getMessageById);
+router.get("/", getForm);
 
 module.exports = router;
