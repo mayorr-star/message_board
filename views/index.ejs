@@ -18,8 +18,10 @@
                         <p><%= message.user %></p>
                         <p><%= message.text %></p>
                         <p><%= message.added %></p>
-                        <button type="button">Open</button>
                     </li>
+                    <a href="/message/<%= message.id %>">
+                      <button type="button">Open</button>
+                    </a>
                 <% }) %>
             </ul>
         </div>
